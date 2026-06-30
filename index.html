@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Dashboard Propio</title>
+  <script src="pickers.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="sw.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="rss.js" defer></script>
+
+</head>
+
+<body>
+  <div id="top">
+    <div id="pickers">
+      <button class="picker" id="forex">Forex y Crypto</button>
+      <button class="picker" id="commodities">Commodities</button>
+      <button class="picker" id="clStock">Stocks Chilenas</button>
+      <button class="picker" id="stock">Stocks Gringas</button>
+      <button class="bellBtn" id="notify-btn">
+        <svg viewBox="0 0 448 512" class="bell">
+          <path
+            d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z">
+          </path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <!-- <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener nofollow"
+        target="_blank"><span class="blue-text">Markets today</span></a><span class="trademark"> by TradingView</span> 
+  </div>-->
+    <script>
+
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+  <div id="contenido-de-abajo">
+    <div class="rss" id="punta-izquerda">
+      <h2 class="rssTitle" id="LTMT"></h2>
+      <h6 class="rssLink" id="LTML"></h6>
+      <h3 class="articuloTitle" id="LTT0"></h3>
+      <p class="articuloDescription" id="LTD0"></p>
+      <h3 class="articuloTitle" id="LTT1"></h3>
+      <p class="articuloDescription" id="LTD1"></p>
+    </div>
+    <div id="calendario">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FSantiago&showPrint=0&src=Ym9yamEuYXJlc3RpQGFsdW1ub3MubXRuLmNs&src=Y183OTZxODBramszajViNDNzZHJhamdsMnVra0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19iZjAxMWEzMDU0YjkxMzEwMWFhNjg4YmRiZjY2M2YzM2Q3OTljOWM2ODQ4YTU2ZGQ5OTViZDMxY2I5MDdlYTZlQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZXMuY2hyaXN0aWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZXMuY2wjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19jbGFzc3Jvb20yNzY3MmRhN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb200MzYwMTM2MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb201MWI4NzI2M0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb201YTczOWI2NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb201ZjQ1ZDhiMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb203OGY0MGM0Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb203YjA0MGY3ZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb21iZTc3Y2QxYkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb21kMGFjYjNmYUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb21kNzJkMzk1NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039be5&color=%23c0ca33&color=%237986cb&color=%234285f4&color=%230b8043&color=%23c26401&color=%231967d2&color=%23b80672&color=%23202124&color=%23202124&color=%237627bb&color=%23c26401&color=%237627bb&color=%23202124&color=%23202124"
+        style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div class="rss" id="punta-derecha">
+      <h2 class="rssTitle" id="RTMT"></h2>
+      <h6 class="rssLink" id="RTML"></h6>
+      <h3 class="articuloTitle" id="RTT0"></h3>
+      <p class="articuloDescription" id="RTD0"></p>
+      <h3 class="articuloTitle" id="RTT1"></h3>
+      <p class="articuloDescription" id="RTD1"></p>
+    </div>
+  </div>
+</body>
+
+</html>
