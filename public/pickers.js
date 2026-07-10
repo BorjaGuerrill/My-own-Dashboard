@@ -32,11 +32,11 @@ function forex() {
     const symbols = names.map(n => ({ proName: n }));
     const config = {
         symbols: symbols,
-        colorTheme: "light",
+        theme: "dark",
         locale: "en",
         largeChartUrl: "",
-        isTransparent: false,
-        showSymbolLogo: true
+        isTransparent: true,
+        showSymbolLogo: true,
     };
     const s = document.createElement('script');
     s.id = 'strip'
@@ -59,11 +59,11 @@ function commodities() {
     const symbols = names.map(n => ({ proName: n }));
     const config = {
         symbols: symbols,
-        colorTheme: "light",
+        theme: "dark",
         locale: "en",
         largeChartUrl: "",
-        isTransparent: false,
-        showSymbolLogo: true
+        isTransparent: true,
+        showSymbolLogo: true,
     };
     const s = document.createElement('script');
     s.id = 'strip'
@@ -86,11 +86,11 @@ function clStock() {
     const symbols = names.map(n => ({ proName: n }));
     const config = {
         symbols: symbols,
-        colorTheme: "light",
+        theme: "dark",
         locale: "en",
         largeChartUrl: "",
-        isTransparent: false,
-        showSymbolLogo: true
+        isTransparent: true,
+        showSymbolLogo: true,
     };
     const s = document.createElement('script');
     s.id = 'strip'
@@ -113,11 +113,11 @@ function stock() {
     const symbols = names.map(n => ({ proName: n }));
     const config = {
         symbols: symbols,
-        colorTheme: "light",
+        theme: "dark",
         locale: "en",
         largeChartUrl: "",
-        isTransparent: false,
-        showSymbolLogo: true
+        isTransparent: true,
+        showSymbolLogo: true,
     };
     const s = document.createElement('script');
     s.id = 'strip'

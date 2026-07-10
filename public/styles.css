@@ -1,10 +1,53 @@
-*{
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  color: #f5f5f5;
+  background-color: #111;
+  transition: background-image 0.5s ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(120, 119, 119, 0.4), rgba(0, 0, 0, 0.75));
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+#toptop,
+#contenido-de-abajo,
+#calendario,
+.rss-panel {
+  position: relative;
+  z-index: 1;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#toptop {
+  flex: 0 0 auto;
+}
+
 #calendario {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  opacity: 50%;
 }
 
 .picker {
@@ -49,24 +92,80 @@
 
 #contenido-de-abajo {
   display: flex;
+  align-items: stretch;
+  gap: 16px;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: 0;
+  overflow: hidden;
 }
 
 #calendario {
+  width: 34%;
+  flex: 0 0 34%;
+  min-height: 0;
+}
+
+#calendario iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.rss {
   width: 33%;
+  flex: 0 0 33%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#punta-derecha,
+#punta-izquerda {
+  height: 100%;
+  overflow: hidden;
+}
+
+#punta-izquerda {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#punta-izquerda>.rss-panel {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+#punta-derecha>.rss-panel {
+  height: 50%;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+#punta-derecha {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .rssTitle {
   display: flex;
+    font-family: "Faster One", system-ui;
+  font-weight: 100;
+  font-size: 3.5em;
+  color:burlywood;
 }
 
 .fecha {
   justify-content: right;
 }
-/* From Uiverse.io by vinodjangid07 */ 
+
+/* From Uiverse.io by vinodjangid07 */
 .bellBtn {
   width: 40px;
   height: 40px;
-  position:relative;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,6 +196,7 @@
 
 /* bell ringing animation keyframes*/
 @keyframes bellRing {
+
   0%,
   100% {
     transform-origin: top;
@@ -126,6 +226,7 @@
 .bellBtn:active {
   transform: scale(0.8);
 }
+
 #top {
   width: 100%;
   box-sizing: border-box;
@@ -137,4 +238,136 @@
   align-items: center;
   gap: 8px;
   width: 100%;
+}
+
+#bajo-izquerda {
+  z-index: 1999;
+}
+
+#punta-izquerda {
+  background-color: rgba(255, 0, 0, 0.26);
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#bajo-izquerda {
+  background-color: rgba(0, 0, 255, 0.26);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#punta-derecha {
+  background-color: rgba(255, 255, 0, 0.26);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#bajo-derecha {
+  background-color: rgba(0, 128, 0, 0.26);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.articuloDescription {
+  font-family: "Geist Pixel", serif;
+}
+
+.articuloTitle {
+  font-family: 'Alfa Slab One';
+  font-weight: 100;
+  font-size: 1.5em;
+  color:white;
+}
+/* From Uiverse.io by tomaskriegelstein */ 
+.articuloButton {
+  font-size: 18px;
+  color: grey;
+  font-family: Poppins;
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+  display: inline-flex;
+  align-items: center;
+}
+
+.articuloButton:focus,
+.articuloButton:hover {
+  color: white;
+}
+
+.articuloButton:focus:after,
+.articuloButton:hover:after {
+  width: 100%;
+  right:0 ;
+  left: auto; /* Ensure left is auto to override the initial value */
+}
+
+.articuloButton:after {
+  content: "";
+  pointer-events: none;
+  bottom: -7px;
+  right: auto; /* Start from the right */
+  left: 0; /* Ensure left is auto to override the initial value */
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 500ms;
+  transition-property: width, right;
+}
+
+.svg-icon {
+  width: 0.9em;
+  height: 0.8em;
+  margin-left: 10px;
+  fill: grey;
+  transform: rotate(-45deg);
+  transition: transform 0.5s ease-out;
+}
+
+.articuloButton:hover .svg-icon {
+  transform: rotate(0deg);
+  fill: white;
+}
+ul {
+  list-style: none;         /* Removes default dots */
+  padding: 0;               /* Resets default browser indent */
+}
+
+li {
+  display: flex;            /* Aligns the arrow and text horizontally */
+  align-items: center;      /* Centers the arrow vertically with text */
+  gap: 10px;                /* Controls spacing between arrow and text */
+  margin-bottom: 8px;       /* Spacing between list items */
+}
+
+li::before {
+  content: "";
+  display: inline-block;
+  width: 14px;              /* Sets arrow width */
+  height: 14px;             /* Sets arrow height */
+  
+  /* Safe, cross-browser Base64 encoded version of your arrow path (Black) */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNNDM4LjYgMjc4LjZjMTIuNS0xMi41IDEyLjUtMzIuOCAwLTQ1LjNsLTE2MC0xNjBjLTEyLjUtMTIuNS0zMi44LTEyLjUtNDUuMyAwbC0xNjAgMTYwYy0xMi41IDEyLjUtMTIuNSAzMi44IDAgNDUuM0wzMzguOCAyMjQgMzIgMjI0Yy0xNy43IDAtMzIgMTQuMy0zMiAzMnMxNC4zIDMyIDMyIDMybDMwNi43IDBMMjMzLjQgMzkzLjRjLTEyLjUgMTIuNS0xMi41IDMyLjggMCA0NS4zczMyLjggMTIuNSA0NS4zIDBsMTYwLTE2MHoiLz48L3N2Zz4=");
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(320deg);
+
 }

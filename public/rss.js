@@ -73,36 +73,85 @@ async function final(url) {
 //     }
 // }
 async function LT() {
-    const feedData = await final("https://rss.nytimes.com/services/xml/rss/nyt/World.xml");
-    const LTMTElement = document.getElementById("LTMT");
-    LTMTElement.innerHTML = feedData.title;
-    const LTMLElement = document.getElementById("LTML");
-    LTMLElement.innerHTML = feedData.link;
-    const LTT0Element = document.getElementById("LTT0")
-    LTT0Element.innerHTML = feedData.items[0].title
-    const LTD0Element = document.getElementById("LTD0");
-    LTD0Element.innerHTML = feedData.items[0].description
-    const LTT1Element = document.getElementById("LTT1")
-    LTT1Element.innerHTML = feedData.items[1].title
-    const LTD1Element = document.getElementById("LTD1");
-    LTD1Element.innerHTML = feedData.items[1].description
+    const feedData = await final(`https://rss.nytimes.com/services/xml/rss/nyt/World.xml`);
+    const LBMTElement = document.getElementById("LTMT");
+    LBMTElement.innerHTML = feedData.title;
+    const LBMTlElement = document.getElementById("LTMT");
+    LBMTlElement.href = feedData.link;
 
+    const entries = [0,1,2,3,4,5,6,7,8,9];
+    entries.forEach(index => {
+        const titleEl = document.getElementById(`LTT${index}`);
+        const descEl = document.getElementById(`LTD${index}`);
+        if (titleEl && feedData.items[index]) {
+            titleEl.innerHTML = feedData.items[index].title;
+            titleEl.href = feedData.items[index].link;
+        }
+        if (descEl && feedData.items[index]) {
+            descEl.innerHTML = feedData.items[index].description;
+        }
+    });
 }
 LT()
 async function RT() {
     const feedData = await final(`/api/rss/hn`);
-    const RTMTElement = document.getElementById("RTMT");
-    RTMTElement.innerHTML = feedData.title;
-    const RTMLElement = document.getElementById("RTML");
-    RTMLElement.innerHTML = feedData.link;
-    const RTT0Element = document.getElementById("RTT0")
-    RTT0Element.innerHTML = feedData.items[0].title
-    const RTD0Element = document.getElementById("RTD0");
-    RTD0Element.innerHTML = feedData.items[0].description
-    const RTT1Element = document.getElementById("RTT1")
-    RTT1Element.innerHTML = feedData.items[1].title
-    const RTD1Element = document.getElementById("RTD1");
-    RTD1Element.innerHTML = feedData.items[1].description
+    const LBMTElement = document.getElementById("RTMT");
+    LBMTElement.innerHTML = feedData.title;
+    const LBMTlElement = document.getElementById("RTMT");
+    LBMTlElement.href = feedData.link;
 
+    const entries = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+    entries.forEach(index => {
+        const titleEl = document.getElementById(`RTT${index}`);
+        const linkEl = document.getElementById(`RTL${index}`);
+        if (titleEl && feedData.items[index]) {
+            titleEl.innerHTML = feedData.items[index].title;
+        }
+        if (linkEl && feedData.items[index]) {
+            linkEl.href = feedData.items[index].link
+        }
+    });
 }
 RT()
+async function LB() {
+    const feedData = await final(`/api/rss/un`);
+    const LBMTElement = document.getElementById("LBMT");
+    LBMTElement.innerHTML = feedData.title;
+    const LBMTlElement = document.getElementById("LBMT");
+    LBMTlElement.href = feedData.link;
+
+    const entries = [0,1,2,3,4,5,6,7,8,9];
+    entries.forEach(index => {
+        const titleEl = document.getElementById(`LBT${index}`);
+        const descEl = document.getElementById(`LBD${index}`);
+        if (titleEl && feedData.items[index]) {
+            titleEl.innerHTML = feedData.items[index].title;
+            titleEl.href = feedData.items[index].link;
+        }
+        if (descEl && feedData.items[index]) {
+            descEl.innerHTML = feedData.items[index].description;
+        }
+    });
+}
+LB()
+async function RB(){
+    const feedData = await final('/api/rss/wd');
+    const RBMTElement = document.getElementById("RBMT");
+    RBMTElement.innerHTML = feedData.title;
+    const RBMTlElement = document.getElementById("RBMT");
+    RBMTlElement.href = feedData.link;
+
+    const entries = [0,1,2,3,4,5,6,7,8,9];
+    entries.forEach(index => {
+        const titleEl = document.getElementById(`RBT${index}`);
+        const descEl = document.getElementById(`RBD${index}`);
+        if (titleEl && feedData.items[index]) {
+            titleEl.innerHTML = feedData.items[index].title;
+            titleEl.href = feedData.items[index].link;
+        }
+        if (descEl && feedData.items[index]) {
+            descEl.innerHTML = feedData.items[index].description;
+        }
+    });
+}
+RB()
